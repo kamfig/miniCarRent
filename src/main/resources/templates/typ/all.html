@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TypAll</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/typ">Typ</a></li>
+    <li role="presentation"><a href="/model">Model</a></li>
+</ul>
+
+<h1>Wszystkie rodzaje Typu </h1>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+            <table class="table table-bordered table-hover table-custom">
+
+                <tr class="success">
+
+                    <th>Id</th>
+
+                    <th>Nazwa</th>
+
+                </tr>
+
+                <tr th:each="typ : ${types}">
+
+                    <td th:text="${typ.id}"></td>
+
+                    <td th:text="${typ.name}"></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

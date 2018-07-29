@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ModelAdd</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/typ">Typ</a></li>
+    <li role="presentation"><a href="/model">Model</a></li>
+</ul>
+
+<h1>Dodaj Nowy Model </h1>
+<div>
+    <form  th:action="@{/model/add}" th:object="${model}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <p> Nazwa: <input type="text" th:field="*{name}" /></p>
+        <p> Opis: <input type="text" th:field="*{description}" /></p>
+        <p> Rok Produkcji: <input type="number" th:field="*{year}" /></p>
+        <p> Liczba Drzwi: <input type="number" th:field="*{doorNumber}" /></p>
+        <p><input type="submit" value="Dodaj" />
+            <select th:field="*{typ}">
+                <option th:each="typ: ${types}"
+                        th:value="${typ.id}"
+                        th:text="${typ}">Typ</option>
+            </select>
+    </form>
+</div>
+
+</body>
+</html>

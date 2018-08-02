@@ -16,20 +16,24 @@
 
 <h1>Dodaj Nowy Model </h1>
 <div>
-    <form  th:action="@{/model/add}" th:object="${model}" method="post">
+    <form  th:action="@{/auto/add}" th:object="${auto}" method="post">
         <input type="hidden" th:field="*{id}" />
-        <p> Nazwa: <input type="text" th:field="*{name}" /></p>
-        <p> Opis: <input type="text" th:field="*{description}" /></p>
-        <p> Rok Produkcji: <input type="number" th:field="*{year}" /></p>
-        <p> Liczba Drzwi: <input type="number" th:field="*{doorNumber}" /></p>
+
         <p>
-            <select th:field="*{typ}">
-                <option th:each="typ: ${types}"
-                        th:value="${typ.id}"
-                        th:text="${typ}">Typ</option>
+            <select th:field="*{model}">
+                <option th:each="model: ${models}"
+                        th:value="${model.id}"
+                        th:text="${model}">Model</option>
             </select>
         </p>
-            <p><input type="submit" value="Dodaj" /></p>
+        <p>
+            <select th:field="*{user}">
+                <option th:each="user: ${users}"
+                        th:value="${user.id}"
+                        th:text="${user}">User</option>
+            </select>
+        </p>
+        <p><input type="submit" value="Połącz Użytkownika z Autem" /></p>
 
     </form>
 </div>

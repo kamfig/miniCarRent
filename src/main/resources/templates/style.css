@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald');
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Oswald', sans-serif;
+    text-underline: aqua;
+}
+
+#bodyId1{
+    background: transparent url("joshua-sortino-5581-unsplash.jpg") center;
+}
+#bodyId2{
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5));
+}

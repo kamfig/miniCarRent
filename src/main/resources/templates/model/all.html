@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>ModelAll</title>
@@ -11,9 +11,53 @@
     <li role="presentation" class="active"><a href="/home">Home</a></li>
     <li role="presentation"><a href="/typ">Typ</a></li>
     <li role="presentation"><a href="/model">Model</a></li>
+    <li role="presentation"><a href="/user">Uzytkownicy</a></li>
 </ul>
 
 <h1>Wszystkie Modele </h1>
 
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+
+            <table class="table table-bordered table-hover table-custom">
+
+                <tr class="success">
+
+                    <th>Id</th>
+
+                    <th>Nazwa</th>
+                    <th>Opis</th>
+                    <th>Rocznik</th>
+                    <th>Ilosc drzwi</th>
+                    <th>Typ</th>
+
+                </tr>
+
+                <tr th:each="model : ${models}">
+
+                    <td th:text="${model.id}"></td>
+
+                    <td th:text="${model.name}"></td>
+
+                    <td th:text="${model.description}"></td>
+
+                    <td th:text="${model.year}"></td>
+
+                    <td th:text="${model.doorNumber}"></td>
+
+                    <td th:text="${model.typ}"></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
 </body>
 </html>

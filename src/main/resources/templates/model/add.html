@@ -11,6 +11,7 @@
     <li role="presentation" class="active"><a href="/home">Home</a></li>
     <li role="presentation"><a href="/typ">Typ</a></li>
     <li role="presentation"><a href="/model">Model</a></li>
+    <li role="presentation"><a href="/user">Uzytkownicy</a></li>
 </ul>
 
 <h1>Dodaj Nowy Model </h1>
@@ -21,12 +22,14 @@
         <p> Opis: <input type="text" th:field="*{description}" /></p>
         <p> Rok Produkcji: <input type="number" th:field="*{year}" /></p>
         <p> Liczba Drzwi: <input type="number" th:field="*{doorNumber}" /></p>
-        <p><input type="submit" value="Dodaj" />
+        <p>
             <select th:field="*{typ}">
                 <option th:each="typ: ${types}"
                         th:value="${typ.id}"
                         th:text="${typ}">Typ</option>
             </select>
+            <input type="submit" value="Dodaj" />
+        </p>
     </form>
 </div>
 

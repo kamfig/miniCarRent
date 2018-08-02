@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 public class Typ {
-    @OneToMany(mappedBy = "typ")
+    @OneToMany(mappedBy = "typ",cascade = CascadeType.ALL)
     List<Model> models;
 
     public List<Model>getModels(){
@@ -41,4 +41,6 @@ public class Typ {
     public String toString() {
         return getName();
     }
+
+
 }

@@ -15,28 +15,29 @@ import pl.KamilF.miniSelfProject.model.Typ;
 public class ModelController {
 
     @Autowired
-    TypDao typDao;
+    private TypDao typDao;
 
     @Autowired
-    ModelDao modelDao;
+    private ModelDao modelDao;
 
     @GetMapping("/model")
-    public String add(ModelMap modelMap){
+    public String add(ModelMap modelMap) {
         modelMap.addAttribute("model", new Model());
+        modelMap.addAttribute("types",typDao.findAll());
         //modelMap.put("typ",typDao.findAll());
         return "model/add";
-        }
+    }
 
-       @PostMapping("/model/add")
-    public String save(@ModelAttribute Model model, ModelMap modelMap){
-        modelMap.put("model",model);
+    @PostMapping("/model/add")
+    public String save(@ModelAttribute Model model, ModelMap modelMap) {
+        modelMap.put("model", model);
         modelDao.save(model);
-        return"redirect:model/all";
-       }
+        return "redirect:/model/all";
+    }
 
-       @GetMapping("model/all")
-    public String findAll(ModelMap modelMap){
-        modelMap.addAttribute("model",modelDao.findAll());
+    @GetMapping("model/all")
+    public String findAll(ModelMap modelMap) {
+        modelMap.addAttribute("models", modelDao.findAll());
         return "model/all";
-       }
+    }
 }

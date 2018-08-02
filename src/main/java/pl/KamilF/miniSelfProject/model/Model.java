@@ -14,6 +14,14 @@ public class Model {
 
     @OneToOne Typ typ;
 
+    public Typ getTyp() {
+        return typ;
+    }
+
+    public void setTyp(Typ typ) {
+        this.typ = typ;
+    }
+
     public Long getId() {
         return id;
     }
